@@ -1,0 +1,62 @@
+[System]
+Name='fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=20
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Prawdopodobieństwo opadów (%)'
+Range=[0 100]
+NumMFs=5
+MF1='Bardzo Niskie':'trimf',[0 0 25]
+MF2='Niskie':'trimf',[0 25 50]
+MF3='Średnie':'trimf',[25 50 75]
+MF4='Wysokie':'trimf',[50 75 100]
+MF5='Bardzo Wysokie':'trimf',[75 100 100]
+
+[Input2]
+Name='Wilgotnośc gleby (%)'
+Range=[0 100]
+NumMFs=4
+MF1='Sucha':'trimf',[0 0 50]
+MF2='Umiarkowana':'trimf',[0 45 75]
+MF3='Wilgotna':'trimf',[50 75 100]
+MF4='Mokra':'trimf',[75 100 100]
+
+[Output1]
+Name='Czas nawadaniania (minuty)'
+Range=[0 60]
+NumMFs=4
+MF1='Krótki':'trimf',[0 0 20]
+MF2='Średni':'trimf',[0 20 40]
+MF3='Długi':'trimf',[20 40 60]
+MF4='Bardzo Długi':'trimf',[40 60 60]
+
+[Rules]
+1 1, 4 (1) : 1
+2 1, 4 (1) : 1
+3 1, 3 (1) : 1
+4 1, 3 (1) : 1
+5 1, 2 (1) : 1
+1 2, 4 (1) : 1
+2 2, 3 (1) : 1
+3 2, 2 (1) : 1
+4 2, 2 (1) : 1
+5 2, 1 (1) : 1
+1 3, 3 (1) : 1
+2 3, 3 (1) : 1
+3 3, 2 (1) : 1
+4 3, 1 (1) : 1
+5 3, 1 (1) : 1
+1 4, 2 (1) : 1
+2 4, 2 (1) : 1
+3 4, 1 (1) : 1
+4 4, 1 (1) : 1
+5 4, 1 (1) : 1
